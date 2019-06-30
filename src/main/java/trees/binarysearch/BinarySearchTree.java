@@ -29,10 +29,22 @@ public class BinarySearchTree {
 		return current;
 	}
 	
+	public int getMinimumValue() {
+		return getMinimumValue(root).getValue();
+	}
+	
+	private Node getMinimumValue(Node current) {
+		while(current.getLeft() != null) {
+			current = current.getLeft();
+		}
+		
+		return current;
+	}
+	
 	public void preOrder() {
 		preOrder(root);
 	}
-
+	
 	private void preOrder(Node node) {
 		if(node == null) {
 			return;

@@ -61,6 +61,25 @@ public class BinarySearchTreeTest {
 		assertNull(root.getRight().getRight().getLeft());
 		assertNull(root.getRight().getRight().getRight());
 	}
+	
+	@Test
+	public void shouldGetMinimumValue() {
+		BinarySearchTree bst = new BinarySearchTree(7);
+
+		assertEquals(7, bst.getMinimumValue());
+		
+		bst.insert(4);
+		bst.insert(6);
+		
+		assertEquals(4, bst.getMinimumValue());
+		
+		bst.insert(10);
+		bst.insert(1);
+		bst.insert(2);
+		bst.insert(35);
+		
+		assertEquals(1, bst.getMinimumValue());
+	}
 
 	@ParameterizedTest
 	@MethodSource("trees.binarysearch.BinarySearchUtils#preOrderTrees")
