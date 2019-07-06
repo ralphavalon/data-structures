@@ -12,7 +12,7 @@ public class BinarySearchTree {
 	}
 	
 	public void insert(int value) {
-		insert(root, value);
+		root = insert(root, value);
 	}
 	
 	private Node insert(Node current, int value) {
@@ -30,7 +30,7 @@ public class BinarySearchTree {
 	}
 	
 	public void delete(int value) {
-		delete(root, value);
+		root = delete(root, value);
 	}
 	
 	private Node delete(Node node, int value) {

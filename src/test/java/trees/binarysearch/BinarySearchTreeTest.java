@@ -18,12 +18,12 @@ public class BinarySearchTreeTest {
 
 	@BeforeEach
 	public void setUpStreams() {
-	    System.setOut(new PrintStream(outContent));
+		System.setOut(new PrintStream(outContent));
 	}
 
 	@AfterEach
 	public void cleanUpStreams() {
-	    System.setOut(null);
+		System.setOut(null);
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class BinarySearchTreeTest {
 		assertEquals(6, root.getLeft().getRight().getValue());
 		assertEquals(10, root.getRight().getValue());
 		assertEquals(35, root.getRight().getRight().getValue());
-		
+
 		assertNull(root.getLeft().getLeft().getLeft());
 		assertNull(root.getLeft().getLeft().getRight());
 		assertNull(root.getLeft().getRight().getLeft());
@@ -61,23 +61,23 @@ public class BinarySearchTreeTest {
 		assertNull(root.getRight().getRight().getLeft());
 		assertNull(root.getRight().getRight().getRight());
 	}
-	
+
 	@Test
 	public void shouldGetMinimumValue() {
 		BinarySearchTree bst = new BinarySearchTree(7);
 
 		assertEquals(7, bst.getMinimumValue());
-		
+
 		bst.insert(4);
 		bst.insert(6);
-		
+
 		assertEquals(4, bst.getMinimumValue());
-		
+
 		bst.insert(10);
 		bst.insert(1);
 		bst.insert(2);
 		bst.insert(35);
-		
+
 		assertEquals(1, bst.getMinimumValue());
 	}
 
@@ -87,27 +87,27 @@ public class BinarySearchTreeTest {
 		bst.preOrder();
 		assertEquals(expectedPreOrder, outContent.toString());
 	}
-	
+
 	@ParameterizedTest
 	@MethodSource("trees.binarysearch.BinarySearchUtils#inOrderTrees")
 	public void shouldPrintInOrder(BinarySearchTree bst, String expectedInOrder) {
 		bst.inOrder();
 		assertEquals(expectedInOrder, outContent.toString());
 	}
-	
+
 	@ParameterizedTest
 	@MethodSource("trees.binarysearch.BinarySearchUtils#postOrderTrees")
 	public void shouldPrintPostOrder(BinarySearchTree bst, String expectedPostOrder) {
 		bst.postOrder();
 		assertEquals(expectedPostOrder, outContent.toString());
 	}
-	
-//	@ParameterizedTest
-//	@MethodSource("trees.binarysearch.BinarySearchUtils#deleteNodes")
-//	public void shouldDeleteNodes(BinarySearchTree bst, String expectedPreOrderAfterDelete) {
-//		bst.delete(50);
-//		bst.preOrder();
-//		assertEquals(expectedPreOrderAfterDelete, outContent.toString());
-//	}
+
+	@ParameterizedTest
+	@MethodSource("trees.binarysearch.BinarySearchUtils#deleteNodes")
+	public void shouldDeleteNodes(BinarySearchTree bst, String expectedPreOrderAfterDelete) {
+		bst.delete(50);
+		bst.preOrder();
+		assertEquals(expectedPreOrderAfterDelete, outContent.toString());
+	}
 
 }

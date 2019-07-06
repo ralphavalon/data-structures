@@ -24,7 +24,7 @@ public class BinarySearchUtils {
 						"50 ",
 						"50 ",
 						"50 ",
-						"50 "),
+						""),
 				new Result(
 						createTree(50, 30),
 						"50 30 ",
