@@ -14,5 +14,9 @@ public class Node {
 	public Node(int value) {
 		this.value = value;
 	}
+	
+	public boolean hasChild() {
+		return this.left != null || this.right != null;
+	}
 
 }

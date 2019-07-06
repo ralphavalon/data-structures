@@ -29,6 +29,36 @@ public class BinarySearchTree {
 		return current;
 	}
 	
+	public void delete(int value) {
+		delete(root, value);
+	}
+	
+	private Node delete(Node node, int value) {
+		if(node == null) {
+			return node;
+		}
+
+		if(value < node.getValue()) {
+			node.setLeft(delete(node.getLeft(), value));
+		} else if(value > node.getValue()) {
+			node.setRight(delete(node.getRight(), value));
+		} else {
+			if(node.getLeft() == null) {
+				return node.getRight();
+			} else if(node.getRight() == null) {
+				return node.getLeft();
+			}
+
+			Node minimumValueFromRightSubtree = getMinimumValue(node.getRight());
+
+			node.setValue(minimumValueFromRightSubtree.getValue());
+
+			node.setRight(delete(node.getRight(), minimumValueFromRightSubtree.getValue()));
+		}
+		return node;
+		
+	}
+	
 	public int getMinimumValue() {
 		return getMinimumValue(root).getValue();
 	}

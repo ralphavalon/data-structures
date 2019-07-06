@@ -101,5 +101,13 @@ public class BinarySearchTreeTest {
 		bst.postOrder();
 		assertEquals(expectedPostOrder, outContent.toString());
 	}
+	
+//	@ParameterizedTest
+//	@MethodSource("trees.binarysearch.BinarySearchUtils#deleteNodes")
+//	public void shouldDeleteNodes(BinarySearchTree bst, String expectedPreOrderAfterDelete) {
+//		bst.delete(50);
+//		bst.preOrder();
+//		assertEquals(expectedPreOrderAfterDelete, outContent.toString());
+//	}
 
 }
